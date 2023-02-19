@@ -5,3 +5,10 @@
 .main_layout {
 
 }
+
+.image_pokedex {
+    width: 200px;
+    height: 80px;
+    margin: auto;
+    margin-bottom: 2rem;
+}

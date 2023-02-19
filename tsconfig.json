@@ -10,6 +10,7 @@
       "@comp/*": ["components/*"],
       "@style/*": ["styles/*"],
       "@type/*": ["types/*"],
+      "@service/*": ["service/*"],
     },
     "allowJs": true,
     "skipLibCheck": true,
