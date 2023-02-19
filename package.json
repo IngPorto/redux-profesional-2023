@@ -1,0 +1,35 @@
+{
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IngPorto/redux-profesional-2023.git"
+  },
+  "keywords": [],
+  "author": "@ingporto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IngPorto/redux-profesional-2023/issues"
+  },
+  "homepage": "https://github.com/IngPorto/redux-profesional-2023#readme",
+  "description": "",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.0.1",
+    "antd": "^5.2.2",
+    "next": "^13.1.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "name": "redux-profesional-2023",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "@types/node": "^18.14.0",
+    "@types/react": "^18.0.28",
+    "typescript": "^4.9.5"
+  }
+}

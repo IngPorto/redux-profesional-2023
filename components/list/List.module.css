@@ -1,0 +1,9 @@
+.list_container {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 10px;
+    justify-content: space-evenly;
+}
+
+.list_container .card_container {
+}
