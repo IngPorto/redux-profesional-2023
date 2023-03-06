@@ -11,7 +11,7 @@ export const getPokemons = async () => {
 
 export const getPokemon = async (url) => {
     try {
-        return await axios.get(url)
+        return (await axios.get(url)).data
     }catch (error){
         console.log(error);
         return {error: "Error en la consulta de un Pokemon"}

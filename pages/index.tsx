@@ -6,22 +6,27 @@ import Card from "@comp/card/Card";
 import List from "@comp/list/List";
 import Image from "next/image";
 import { getPokemons, getPokemon } from "../service/pokemons";
-import { PokemonsType, PokemontApiResponseType } from "@type/pokemons.types";
+import { PokemonsType } from "@type/pokemons.types";
+import {
+  PokemonApiResponseType,
+  PokemonsApiResponseType,
+} from "@type/service/pokemons.types";
 
 const Index = () => {
   const [pokemons, setPokemons] = useState<PokemonsType[]>([]);
 
   useEffect(() => {
     const request = async () => {
-      const data: PokemontApiResponseType = await getPokemons();
-      let completePokemons = data.results.map(async (pokemon) => {
-        const complementData = await getPokemon(pokemon.url);
+      const data: PokemonsApiResponseType = await getPokemons();
+      let promises = data.results.map(async (pokemon: PokemonsType) => {
+        const complementData: Promise<PokemonApiResponseType> =
+          await getPokemon(pokemon.url);
         return {
           ...pokemon,
-          ...complementData.data,
-        };
+          ...complementData,
+        } as PokemonsType;
       });
-      completePokemons = await Promise.all(completePokemons)
+      const completePokemons: PokemonsType[] = await Promise.all(promises);
       setPokemons(completePokemons);
       console.log("completePokemons", completePokemons);
     };

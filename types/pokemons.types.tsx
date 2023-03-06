@@ -1,11 +1,6 @@
-export interface PokemonsType {
-    name: string;
-    url: string;
-}
+import { PokemonApiResponseType } from "@type/service/pokemons.types";
 
-export interface PokemontApiResponseType {
-    count: string;
-    next: string  | null;
-    previous: string | null;
-    results: [PokemonsType]
+export interface PokemonsType extends PokemonApiResponseType {
+  name: string;
+  url: string;
 }
