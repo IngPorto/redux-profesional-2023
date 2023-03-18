@@ -1,4 +1,4 @@
-import Card from "@comp/card/Card";
+import Card from "@comp/UI/card/Card";
 import styles from "./List.module.css";
 import { PokemonsType } from "@type/pokemons.types";
 import { useEffect } from "react";

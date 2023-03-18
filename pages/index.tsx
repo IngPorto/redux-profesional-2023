@@ -1,9 +1,9 @@
 import { Col } from "antd";
-import Searcher from "@comp/searcher/Searcher";
+import { Searcher } from "@UI/searcher";
 import React, { useEffect, useState } from "react";
 import styles from "@style/pages/index/index.module.css";
-import Card from "@comp/card/Card";
-import List from "@comp/list/List";
+import Card from "@comp/UI/card/Card";
+import List from "@UI/list/List";
 import Image from "next/image";
 import { getPokemons, getPokemon } from "../service/pokemons";
 import { PokemonsType } from "@type/pokemons.types";
