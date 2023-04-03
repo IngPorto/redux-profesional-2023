@@ -1,5 +1,4 @@
 import { render } from "@testing-library/react";
-//import Searcher from "@comp/UI/searcher";
 import "@testing-library/jest-dom";
 import Searcher from "../Searcher";
 
