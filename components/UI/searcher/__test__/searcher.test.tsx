@@ -4,5 +4,8 @@ import Searcher from "../Searcher";
 
 test("verify Searcher component render", () => {
   const component = render(<Searcher />);
-  console.log(component);
+  expect(component.container).toBeVisible();
+  component.getByPlaceholderText("Buscar...");
+
+  component.debug();
 });
