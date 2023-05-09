@@ -1,36 +1,19 @@
 import { Col } from "antd";
 import Searcher from "@UI/searcher";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styles from "@style/pages/index/index.module.css";
 import List from "@UI/list";
 import Image from "next/image";
-import { getPokemons, getPokemon } from "../service/pokemons";
-import { PokemonsType } from "@type/pokemons.types";
-import {
-  PokemonApiResponseType,
-  PokemonsApiResponseType,
-} from "@type/service/pokemons.types";
+import { useSelector } from "react-redux";
+import { iStoreType } from "@type/store/store.types";
+import ButtonPanel from "@comp/UI/buttonPanel";
 
 const Index = () => {
-  const [pokemons, setPokemons] = useState<PokemonsType[]>([]);
+  const pokemons = useSelector((state: iStoreType) => state.pokemons);
 
   useEffect(() => {
-    const request = async () => {
-      const data: PokemonsApiResponseType = await getPokemons();
-      let promises = data.results.map(async (pokemon: PokemonsType) => {
-        const complementData: Promise<PokemonApiResponseType> =
-          await getPokemon(pokemon.url);
-        return {
-          ...pokemon,
-          ...complementData,
-        } as PokemonsType;
-      });
-      const completePokemons: PokemonsType[] = await Promise.all(promises);
-      setPokemons(completePokemons);
-      console.log("completePokemons", completePokemons);
-    };
-    request();
-  }, []);
+    console.log("pokemons", pokemons);
+  }, [pokemons]);
 
   return (
     <div>
@@ -46,8 +29,11 @@ const Index = () => {
       <Col span={8} offset={8}>
         <Searcher />
       </Col>
+      <Col className={styles.button_panel} span={9} offset={8}>
+        <ButtonPanel />
+      </Col>
       <br />
-      <List pokemons={pokemons} />
+      {!!pokemons && pokemons.length > 0 && <List pokemons={pokemons} />}
     </div>
   );
 };
