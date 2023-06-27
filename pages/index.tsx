@@ -11,10 +11,6 @@ import ButtonPanel from "@comp/UI/buttonPanel";
 const Index = () => {
   const pokemons = useSelector((state: iStoreType) => state.pokemons);
 
-  useEffect(() => {
-    console.log("pokemons", pokemons);
-  }, [pokemons]);
-
   return (
     <div>
       <Col span={5} offset={10}>

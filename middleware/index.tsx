@@ -9,7 +9,7 @@ export const logger = (store) => {
 };
 
 export const featuring = (store) => (next) => (actionInfo) => {
-  if (actionInfo.payload) {
+  if (actionInfo.payload && actionInfo.type === "pokemon//fulfilled") {
     const featured = [
       {
         ...actionInfo.payload[0],
@@ -26,5 +26,7 @@ export const featuring = (store) => (next) => (actionInfo) => {
       payload: featured,
     };
     next(updatedActionInfo);
+    return;
   }
+  next(actionInfo);
 };

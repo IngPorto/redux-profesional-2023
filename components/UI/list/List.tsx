@@ -1,12 +1,19 @@
 import Card from "@comp/UI/card/Card";
 import styles from "./List.module.css";
-import { PokemonsType } from "@type/pokemons.types";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { likePokemon } from "store/pokemonsSlice";
 
 const List = ({ pokemons }) => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
     console.log("pokemons", pokemons);
   }, []);
+
+  const onLikeHandle = (name) => {
+    dispatch(likePokemon(name));
+  };
 
   return (
     <div className={styles.list_container}>
@@ -22,6 +29,8 @@ const List = ({ pokemons }) => {
               img={pokemon.sprites.front_default}
               description={description}
               key={index}
+              liked={pokemon.like}
+              onLikeHandle={() => onLikeHandle(pokemon.name)}
             />
           );
         })}

@@ -1,9 +1,35 @@
 .list_container {
+  display: grid;
+  grid-template-columns: repeat(1, auto);
+  justify-content: center;
+}
+
+.list_container .card_container {
+}
+
+@media (min-width: 1000px) {
+  .list_container {
     display: grid;
     grid-template-columns: repeat(4, auto);
     grid-gap: 10px;
     justify-content: space-evenly;
+  }
 }
 
-.list_container .card_container {
+@media (min-width: 760px) and (max-width: 999px) {
+  .list_container {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 10px;
+    justify-content: space-evenly;
+  }
+}
+
+@media (min-width: 520px) and (max-width: 759px) {
+  .list_container {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 10px;
+    justify-content: space-evenly;
+  }
 }

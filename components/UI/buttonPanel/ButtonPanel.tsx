@@ -35,12 +35,12 @@ const ButtonPanel = () => {
     });
   };
   return (
-    <div>
+    <>
       <Button onClick={handleGetGen1}>Gen 1</Button>
       <Button onClick={handleGetGen2}>Gen 2</Button>
       <Button onClick={handleGetGen3}>Gen 3</Button>
       <Button onClick={handleGetGen4}>Gen 4</Button>
-    </div>
+    </>
   );
 };
 

@@ -31,7 +31,15 @@ export const pokemonSlice = createSlice({
   reducers: {
     addPokemons: (state, { payload }) => {
       // state.push(...action.payload);
-      return  payload;
+      return payload;
+    },
+    likePokemon: (state, { payload }) => {
+      if (state.length > 0) {
+        const newState = state.map((pokemon) =>
+          pokemon.name === payload ? { ...pokemon, like: !!!pokemon.like } : pokemon
+        );
+        return newState;
+      }
     },
   },
   extraReducers: (builder) => {
@@ -41,5 +49,5 @@ export const pokemonSlice = createSlice({
   },
 });
 
-export const { addPokemons } = pokemonSlice.actions;
+export const { addPokemons, likePokemon } = pokemonSlice.actions;
 export default pokemonSlice.reducer;
