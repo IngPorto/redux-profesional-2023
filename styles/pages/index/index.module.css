@@ -18,3 +18,9 @@
     display: flex;
     justify-content: space-evenly;
 }
+
+.spin_content {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}

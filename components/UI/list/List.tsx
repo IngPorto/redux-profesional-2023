@@ -16,9 +16,9 @@ const List = ({ pokemons }) => {
   };
 
   return (
-    <div className={styles.list_container}>
-      {pokemons &&
-        pokemons.map((pokemon, index) => {
+    <div>
+      <div className={styles.list_container}>
+        {pokemons.map((pokemon, index) => {
           const description = pokemon.types
             .map((type) => type.type.name)
             .join(", ");
@@ -34,6 +34,7 @@ const List = ({ pokemons }) => {
             />
           );
         })}
+      </div>
     </div>
   );
 };
